@@ -20,7 +20,7 @@ export default function BookPagination({ page, limit, total, onPageChange }: Boo
                 </PaginationItem>
 
                 
-                {[...Array(totalPages)].map((item, i) => {
+                {[...Array(totalPages)].map((_item, i) => {
                     const pageNumber = i +1; 
 
                     return (
