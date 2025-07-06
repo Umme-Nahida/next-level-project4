@@ -25,11 +25,10 @@ const DeleteBookModal = ({ book }: IProps) => {
 
     const handleDelete = async () => {
         try {
-            const res = await deleteBook(book?._id).unwrap();
+            const res = await deleteBook(book?._id as string).unwrap();
             if (res.success) {
                 toast.success("Book deleted successfully!");
             } else if (res.error) {
-                const { errors } = res.error;
                 toast.error("Failed to delete the book.")
             }
             

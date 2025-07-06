@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 
 const AddBookModal = () => {
     const [open, setOpen] = useState(false);
-    const [createBook, { data, isError }] = useCreateBookMutation()
+    const [createBook, { isError }] = useCreateBookMutation()
     const navigate = useNavigate();
 
 

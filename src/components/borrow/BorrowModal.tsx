@@ -25,11 +25,11 @@ interface IProps {
 
 export default function BorrowModal({ book }: IProps) {
   const [open,setOpen] = useState(false)
-  const [addBorrow, {data}] = useAddBorrowMutation()
+  const [addBorrow] = useAddBorrowMutation()
   const [quantity, setQuantity] = useState(1);
   const [date, setDate] = useState<Date>();
 
- 
+//  console.log(data)
 
   const handleBorrow = async() => {
     const borrowInfo = {
@@ -45,10 +45,10 @@ export default function BorrowModal({ book }: IProps) {
                 setOpen(false)
 
             }else if(res.error) {
-                toast.error(res.error.data.message)
+                toast.error("Error adding borrow")
             }
         } catch (err: any) {
-            toast.error(err?.data?.errorResponse?.errmsg || "Error adding borrow.");
+            toast.error(err?.data?.errorResponse?.errmsg || "Error adding borrow");
         }
   };
 

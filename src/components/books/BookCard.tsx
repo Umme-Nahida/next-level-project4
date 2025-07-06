@@ -1,5 +1,4 @@
 import type { IBook } from "@/types/bookTypes";
-import { Pencil, Trash2 } from "lucide-react";
 import UpdateModals from "./UpdateModals";
 import DeleteBookModal from "./DeleteBookModal";
 import BorrowModal from "../borrow/BorrowModal";
