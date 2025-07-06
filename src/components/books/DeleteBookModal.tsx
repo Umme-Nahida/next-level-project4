@@ -16,10 +16,11 @@ import { useDeleteBookMutation } from "@/features/api/baseApi";
 import toast from "react-hot-toast";
 
 interface IProps {
-    book: IBook
+    book: IBook,
+     refetch: () => void;
 }
 
-const DeleteBookModal = ({ book }: IProps) => {
+const DeleteBookModal = ({ book, refetch }: IProps) => {
     const [deleteBook] = useDeleteBookMutation()
 
 
@@ -28,6 +29,7 @@ const DeleteBookModal = ({ book }: IProps) => {
             const res = await deleteBook(book?._id as string).unwrap();
             if (res.success) {
                 toast.success("Book deleted successfully!");
+                refetch()
             } else if (res.error) {
                 toast.error("Failed to delete the book.")
             }

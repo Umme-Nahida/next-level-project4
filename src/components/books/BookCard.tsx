@@ -4,10 +4,11 @@ import DeleteBookModal from "./DeleteBookModal";
 import BorrowModal from "../borrow/BorrowModal";
 
 interface IProp{
-    book: IBook
+    book: IBook,
+    refetch: () => void;
 }
 
-export default function BookCard({ book }: IProp) {
+export default function BookCard({ book,refetch }: IProp) {
   return (
     <div className="bg-white shadow-md rounded-xl p-5 w-full max-w-md mx-auto my-4">
       <div className="flex justify-between items-start mb-3">
@@ -25,9 +26,9 @@ export default function BookCard({ book }: IProp) {
         <div className="flex space-x-3">
 
           {/* update a book modal */}
-          <UpdateModals book={book}></UpdateModals>
+          <UpdateModals book={book} refetch={refetch}></UpdateModals>
 
-         <DeleteBookModal book={book}></DeleteBookModal>
+         <DeleteBookModal book={book} refetch={refetch}></DeleteBookModal>
         </div>
       </div>
 

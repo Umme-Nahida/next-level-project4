@@ -8,10 +8,11 @@ import toast from "react-hot-toast";
 import type { IBook } from "@/types/bookTypes";
 
 interface IProps{
-    book: IBook
+    book: IBook,
+    refetch: () => void;
 }
 
-const UpdateModals = ({book}: IProps) => {
+const UpdateModals = ({book,refetch}: IProps) => {
 
         const [updateBook, {isError}] = useUpdateBookMutation();
         const [open, setOpen] = useState(false);
@@ -41,6 +42,7 @@ const UpdateModals = ({book}: IProps) => {
                   console.log('res',res)
                  if (res.success) {
                      toast.success("Book updated successfully!");
+                     refetch()
                      navigate('/books')
                      setOpen(false);
     

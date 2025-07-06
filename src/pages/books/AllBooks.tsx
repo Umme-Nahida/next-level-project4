@@ -12,7 +12,7 @@ const AllBooks = () => {
     const [selectedGenre, setSelectedGenre] = useState<string | undefined>();
     const limit = 5;
 
-    const { data, isLoading } = useGetBooksQuery({ page, limit, filter: selectedGenre });
+    const { data, isLoading, refetch } = useGetBooksQuery({ page, limit, filter: selectedGenre });
     const books = data?.data || [];
     const meta = data?.meta;
 
@@ -57,7 +57,7 @@ const AllBooks = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center justify-items-center">
                     {
                         books?.map((book: IBook, inx: any) => (
-                            <BookCard key={inx} book={book}></BookCard>
+                            <BookCard key={inx} book={book} refetch={refetch}  ></BookCard>
                         ))
                     }
                 </div>
