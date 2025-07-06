@@ -40,7 +40,7 @@ export default function BorrowModal({ book }: IProps) {
 
       try {
             const res = await addBorrow(borrowInfo)
-            if (res.data.success) {
+            if (res?.data?.success) {
                 toast.success("Book borrowed successfully!");
                 setOpen(false)
 
